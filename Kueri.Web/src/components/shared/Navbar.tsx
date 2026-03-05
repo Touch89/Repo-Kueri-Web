@@ -2,16 +2,14 @@ import { Link, NavLink } from 'react-router-dom';
 import { HiOutlineSearch, HiOutlineShoppingCart } from 'react-icons/hi';
 import { navbarLinks } from '../../Constant/links';
 import { FaBarsStaggered } from 'react-icons/fa6';
+import { Logo } from './Logo';
 
 export const Navbar = () => {
     return (
         <header className="bg-white text-black p-4 flex items-center justify-between border-b border-slate-200 lg:px-12">
-            {/* Logo */}
-            <div className="font-bold text-xl">
-                <Link to="/">Kueri</Link>
-            </div>
+            <Logo />
 
-            <nav className="flex gap-6">
+            <nav className="space-x-5 hidden md:flex">
                 {
                     navbarLinks.map((link) => (
                         <NavLink

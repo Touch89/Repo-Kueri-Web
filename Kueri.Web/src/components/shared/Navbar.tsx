@@ -6,10 +6,10 @@ import { Logo } from './Logo';
 
 export const Navbar = () => {
     return (
-        <header className="bg-white text-black p-4 flex items-center justify-between border-b border-slate-200 lg:px-12">
+        <header className="bg-white text-black p-4 flex flex-wrap items-center justify-between gap-x-4 gap-y-3 border-b border-slate-200 lg:px-12">
             <Logo />
 
-            <nav className="space-x-5 hidden md:flex">
+            <nav className="order-3 w-full md:order-none md:w-auto flex items-center gap-5 overflow-x-auto whitespace-nowrap">
                 {
                     navbarLinks.map((link) => (
                         <NavLink

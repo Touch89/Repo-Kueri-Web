@@ -7,7 +7,7 @@ export const Footer = () => {
     <footer className="py-16 bg-gray-950 px-6 md:px-12 grid gap-10 text-slate-200 text-sm md:grid-cols-4">
       <Link to='/'
         className="text-2xl font-bold tracking-tighter text-white">
-        Kueri
+        KueriMex
       </Link>
 
       <div className="flex flex-col gap-4">

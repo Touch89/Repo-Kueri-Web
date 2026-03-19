@@ -43,7 +43,7 @@ export const FeatureGrid = () => {
 
           <div className="space-y-1 text-slate-700">
             <p className="font-semibold leading-none">Garantía</p>
-            <p className="text-sm leading-5">Garantía de 1 año en todos los equipos</p>
+            <p className="text-sm leading-5">Garantía 30 días en todos los productos</p>
           </div>
         </div>
       </div>

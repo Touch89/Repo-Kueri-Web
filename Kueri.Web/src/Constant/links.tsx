@@ -3,7 +3,8 @@ import { FaFacebookF, FaInstagram, FaTiktok, FaWhatsapp } from 'react-icons/fa6'
 export const navbarLinks = [
     { id: 1, title: 'Inicio', href: '/' },
     { id: 2, title: 'Cinturones', href: '/cinturones' },
-    { id: 3, title: 'Sobre Nosotros', href: '/nosotros' }
+    { id: 3, title: 'Sobre Nosotros', href: '/nosotros' },
+    { id: 4, title: 'Admin', href: '/admin' }
 ];
 
 export const socialLinks = [

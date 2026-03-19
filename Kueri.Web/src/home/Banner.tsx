@@ -4,7 +4,7 @@ export const Banner = () => {
   return <div className="relative bg-gray-900 text-white">
     {/* Background image */}
     <div className="absolute inset-0 bg-cover bg-center opacity-70 h-full"
-      style={{ backgroundImage: 'url(/images/img-banner.jpg)' }}></div>
+      style={{ backgroundImage: 'url(/img/img-banner.jpg)' }}></div>
 
     {/*Overlay */}
     <div className="absolute inset-0 bg-black opacity-50"></div>

@@ -8,4 +8,4 @@ npm run dev
 ```
 
 nota video
-1:06:42
+1:16:42

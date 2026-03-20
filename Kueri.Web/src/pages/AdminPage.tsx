@@ -7,7 +7,7 @@ type ProductFormState = {
   price: string;
   stock: string;
   imageUrl: string;
-  category: string;
+  sku: string;
 };
 
 type SubmitStatus = {
@@ -21,12 +21,12 @@ const INITIAL_FORM: ProductFormState = {
   price: '',
   stock: '',
   imageUrl: '',
-  category: ''
+  sku: ''
 };
 
 export const AdminPage = () => {
   const [form, setForm] = useState<ProductFormState>(INITIAL_FORM);
-  const [endpoint, setEndpoint] = useState('/api/products');
+  const endpoint = '127.0.0.1:8000';
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<SubmitStatus>({ kind: 'idle', message: '' });
 
@@ -50,15 +50,15 @@ export const AdminPage = () => {
     event.preventDefault();
 
     const payload = {
-      name: form.name.trim(),
-      description: form.description.trim(),
-      price: Number(form.price),
+      nombre: form.name.trim(),
+      descripcion: form.description.trim(),
+      imagen_url: form.imageUrl.trim(),
+      precio: Number(form.price),
+      sku: form.sku.trim(),
       stock: Number(form.stock),
-      imageUrl: form.imageUrl.trim(),
-      category: form.category.trim() || null
     };
 
-    if (Number.isNaN(payload.price) || Number.isNaN(payload.stock)) {
+    if (Number.isNaN(payload.precio) || Number.isNaN(payload.stock)) {
       setStatus({ kind: 'error', message: 'Precio y stock deben ser valores numericos.' });
       return;
     }
@@ -67,7 +67,7 @@ export const AdminPage = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch(endpoint.trim(), {
+      const response = await fetch('http://127.0.0.1:8000/productos', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -93,27 +93,12 @@ export const AdminPage = () => {
   return (
     <section className="mx-auto w-full max-w-3xl rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
       <header className="mb-6 space-y-2">
-        <h1 className="text-2xl font-bold text-slate-900">Panel Admin</h1>
+        <h1 className="text-2xl font-bold text-slate-900">Crear producto</h1>
         <p className="text-sm text-slate-600">
-          Crea nuevos productos enviando un POST a tu API.
         </p>
       </header>
 
       <form onSubmit={handleSubmit} className="space-y-5">
-        <div>
-          <label htmlFor="endpoint" className="mb-1 block text-sm font-semibold text-slate-700">
-            Endpoint de API
-          </label>
-          <input
-            id="endpoint"
-            name="endpoint"
-            type="text"
-            value={endpoint}
-            onChange={(event) => setEndpoint(event.target.value)}
-            placeholder="/api/products"
-            className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none transition focus:border-cyan-600"
-          />
-        </div>
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           <div>
@@ -132,14 +117,14 @@ export const AdminPage = () => {
           </div>
 
           <div>
-            <label htmlFor="category" className="mb-1 block text-sm font-semibold text-slate-700">
-              Categoria (opcional)
+            <label htmlFor="sku" className="mb-1 block text-sm font-semibold text-slate-700">
+              SKU
             </label>
             <input
-              id="category"
-              name="category"
+              id="sku"
+              name="sku"
               type="text"
-              value={form.category}
+              value={form.sku}
               onChange={handleChange}
               className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none transition focus:border-cyan-600"
             />

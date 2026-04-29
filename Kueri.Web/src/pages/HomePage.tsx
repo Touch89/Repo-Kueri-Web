@@ -1,5 +1,5 @@
-import { FeatureGrid } from "../home/FeatureGrid";
-import { ProductGrid } from "../home/ProductGrid";
+import { FeatureGrid } from "../components/home/FeatureGrid";
+import { ProductGrid } from "../components/home/ProductGrid";
 import { useState, useEffect } from "react";
 
 export const HomePage = () => {
@@ -26,9 +26,17 @@ export const HomePage = () => {
 
   return (
     <div>
-      <FeatureGrid />
+
+
+      <ProductGrid title="Productos Destacados" products={productos} />
 
       <ProductGrid title="Modelos de Cinturones" products={productos} />
+
+      <ProductGrid title="Modelos de Billeteras Caballero" products={productos} />
+
+      <ProductGrid title="Modelos de Carteras Dama" products={productos} />
+
+      <FeatureGrid />
     </div>
   );
 };

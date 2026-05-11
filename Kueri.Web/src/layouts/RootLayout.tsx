@@ -3,6 +3,7 @@ import { Navbar } from "../components/shared/Navbar"
 import { Footer } from "../components/shared/Footer"
 import { Banner } from "../components/home/Banner"
 import { Newsletter } from "../components/home/Newsletter"
+import { CartDrawer } from "../components/shared/CartDrawer"
 
 export const RootLayout = () => {
 
@@ -10,6 +11,7 @@ export const RootLayout = () => {
 
     return (
         <div className="h-screen flex flex-col font-montserrat">
+            <CartDrawer />
             <Navbar />
 
             {pathname === '/' && <Banner />}

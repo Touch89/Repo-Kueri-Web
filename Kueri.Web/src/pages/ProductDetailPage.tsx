@@ -4,12 +4,14 @@ import { HiOutlineShoppingCart } from 'react-icons/hi';
 import { HiArrowLeft } from 'react-icons/hi2';
 import { productsApi } from '../api/products';
 import type { Product } from '../api/products';
+import { useCart } from '../context/CartContext';
 
 export const ProductDetailPage = () => {
   const { id } = useParams<{ id: string }>();
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const { addItem } = useCart();
 
   useEffect(() => {
     if (!id) return;
@@ -93,9 +95,9 @@ export const ProductDetailPage = () => {
             )}
           </div>
 
-          {/* CTA – placeholder until cart is implemented */}
           <button
             disabled={!isAvailable}
+            onClick={() => addItem(product)}
             className="mt-2 flex items-center justify-center gap-2 rounded-xl bg-slate-900 px-6 py-3 font-semibold text-white transition hover:bg-cyan-700 disabled:cursor-not-allowed disabled:opacity-50"
           >
             <HiOutlineShoppingCart size={20} />

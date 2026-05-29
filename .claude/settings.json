@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(@\\(\"ProductosPage\", \"MisPedidosPage\", \"CheckoutPage\", \"PedidosPage\"\\) | ForEach-Object { if \\(Test-Path \"c:\\\\Users\\\\kueri\\\\OneDrive\\\\Documentos\\\\GitHub\\\\Repo-Kueri-Web\\\\V2\\\\Kueri.Web\\\\src\\\\pages\\\\$_.tsx\"\\) { \"File exists: $_\" } })",
+      "Bash(npm run *)"
+    ]
+  }
+}

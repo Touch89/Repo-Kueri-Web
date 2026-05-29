@@ -32,7 +32,7 @@ export const Navbar = () => {
                 </button>
                 <div className="relative">
                     {/* User Nav */}
-                    <Link to='/account'
+                    <Link to='/cuenta'
                         className='border-2 border-slate-700 w-9 h-9 rounded-full grid place-items-center text-lg font-bold'>
                     </Link>
                 </div>
